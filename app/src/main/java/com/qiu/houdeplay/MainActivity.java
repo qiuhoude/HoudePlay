@@ -34,7 +34,7 @@ public class MainActivity extends BaseActivity implements SearchView.OnQueryText
         actionBar.setDisplayUseLogoEnabled(true);
         actionBar.setHomeButtonEnabled(true);
         /*
-		 *	1）显示Navigation Drawer的 Activity 对象
+         *	1）显示Navigation Drawer的 Activity 对象
 			2） DrawerLayout 对象
 			3）一个用来指示Navigation Drawer的 drawable资源
 			4）一个用来描述打开Navigation Drawer的文本 (用于支持可访问性)。
@@ -67,8 +67,8 @@ public class MainActivity extends BaseActivity implements SearchView.OnQueryText
         tab_names = UiUtils.getStringArray(R.array.tab_names);
         setContentView(R.layout.activity_main);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.dl);
-        mViewPager=(ViewPager) findViewById(R.id.vp);
-        pager_tab_strip=(PagerTabStrip) findViewById(R.id.pager_tab_strip);
+        mViewPager = (ViewPager) findViewById(R.id.vp);
+        pager_tab_strip = (PagerTabStrip) findViewById(R.id.pager_tab_strip);
     }
 
     @Override
@@ -77,6 +77,15 @@ public class MainActivity extends BaseActivity implements SearchView.OnQueryText
         pager_tab_strip.setTabIndicatorColor(getResources().getColor(R.color.indicatorcolor));
         mViewPager.setAdapter(new MainAdpater(getSupportFragmentManager()));
         //sendBroadcast(new Intent("com.itheima.google.killall"));
+        mViewPager.addOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
+
+
+            @Override
+            public void onPageSelected(int position) {
+                super.onPageSelected(position);
+                FragmentFactory.createFragment(position).show();
+            }
+        });
     }
 
 
@@ -84,6 +93,7 @@ public class MainActivity extends BaseActivity implements SearchView.OnQueryText
         public MainAdpater(FragmentManager fm) {
             super(fm);
         }
+
         // 每个条目返回的fragment
         //  0
         @Override
@@ -91,11 +101,13 @@ public class MainActivity extends BaseActivity implements SearchView.OnQueryText
             //  通过Fragment工厂  生产Fragment
             return FragmentFactory.createFragment(position);
         }
+
         // 一共有几个条目
         @Override
         public int getCount() {
             return tab_names.length;
         }
+
         // 返回每个条目的标题
         @Override
         public CharSequence getPageTitle(int position) {
@@ -122,7 +134,7 @@ public class MainActivity extends BaseActivity implements SearchView.OnQueryText
         if (item.getItemId() == R.id.action_search) {
             Toast.makeText(getApplicationContext(), "搜索点击了", Toast.LENGTH_SHORT);
         }
-        return drawerToggle.onOptionsItemSelected(item)|super.onOptionsItemSelected(item);
+        return drawerToggle.onOptionsItemSelected(item) | super.onOptionsItemSelected(item);
     }
 
 

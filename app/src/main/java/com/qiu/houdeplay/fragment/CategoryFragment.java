@@ -1,18 +1,19 @@
 package com.qiu.houdeplay.fragment;
 
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.TextView;
 
-public class CategoryFragment extends Fragment {
+public class CategoryFragment extends BaseFragment {
+
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
+	protected View createSuccessView() {
 		TextView view=new TextView(getActivity());
-		view.setText("����CategoryFragment");
+		view.setText("CategoryFragment");
 		return view;
+	}
+
+	@Override
+	protected LoadResult load() {
+		return LoadResult.error;
 	}
 }
