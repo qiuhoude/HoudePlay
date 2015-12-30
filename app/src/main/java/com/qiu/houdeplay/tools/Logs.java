@@ -47,7 +47,7 @@ public class Logs {
      * 日志输出时的TAG
      */
 
-    private static String mTag = "googleplay";
+    private static String mTag = "qiu";
 
     /**
      * 是否允许输出log

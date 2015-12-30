@@ -1,5 +1,6 @@
 package com.qiu.houdeplay.tools;
 
+import android.content.Context;
 import android.content.res.Resources;
 import android.support.annotation.ArrayRes;
 
@@ -22,6 +23,11 @@ public class UiUtils {
         return BaseApplication.getApplication().getResources();
     }
 
+    public static Context getContext() {
+        return BaseApplication.getApplication();
+    }
+
+
     /**
      * dip转换px
      */
@@ -36,5 +42,19 @@ public class UiUtils {
     public static int px2dip(int px) {
         final float scale = getResource().getDisplayMetrics().density;
         return (int) (px / scale + 0.5f);
+    }
+
+    /**
+     * 把Runnable 方法提交到主线程运行
+     * @param runnable
+     */
+    public static void runOnUiThread(Runnable runnable) {
+        // 在主线程运行
+        if(android.os.Process.myTid()==BaseApplication.getMainTid()){
+            runnable.run();
+        }else{
+            //获取handler
+            BaseApplication.getHandler().post(runnable);
+        }
     }
 }
