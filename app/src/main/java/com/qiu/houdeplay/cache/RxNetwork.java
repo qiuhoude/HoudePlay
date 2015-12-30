@@ -1,32 +1,31 @@
 package com.qiu.houdeplay.cache;
 
-import com.qiu.houdeplay.tools.Logs;
-
 import rx.Observable;
 import rx.Subscriber;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
 
 /**
  * Created by Administrator on 2015/12/30.
  */
-public class RxMemoryCache implements RxCache {
+public class RxNetwork implements RxCache {
 
     @Override
-    public Observable<CacheData> getObservable(final String url) {
+    public Observable<CacheData> getObservable(String url) {
+
         return Observable.create(new Observable.OnSubscribe<CacheData>() {
             @Override
             public void call(Subscriber<? super CacheData> subscriber) {
                 if (subscriber.isUnsubscribed()) return;
-                Logs.d("search in memory");
-                subscriber.onNext(MemoryCache.getInstance().getData(url));
-                subscriber.onCompleted();
+
             }
-        });
+        }).subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
     }
 
 
-
-
+    @Override
     public void putData(String key, CacheData data) {
-        MemoryCache.getInstance().putData(key, data);
+
     }
 }
