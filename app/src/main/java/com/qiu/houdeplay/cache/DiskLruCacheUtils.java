@@ -3,9 +3,9 @@ package com.qiu.houdeplay.cache;
 import android.content.Context;
 import android.os.Environment;
 
-import com.qiu.houdeplay.tools.IoUtils;
-import com.qiu.houdeplay.tools.MiscUtils;
-import com.qiu.houdeplay.tools.UiUtils;
+import com.qiu.houdeplay.utils.IoUtils;
+import com.qiu.houdeplay.utils.MiscUtils;
+import com.qiu.houdeplay.utils.UiUtils;
 
 import java.io.BufferedReader;
 import java.io.File;

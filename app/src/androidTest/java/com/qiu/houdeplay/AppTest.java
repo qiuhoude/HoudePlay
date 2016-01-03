@@ -4,7 +4,7 @@ import android.content.Context;
 import android.test.AndroidTestCase;
 
 import com.qiu.houdeplay.cache.DiskLruCacheUtils;
-import com.qiu.houdeplay.tools.Logs;
+import com.qiu.houdeplay.utils.Logs;
 
 /**
  * Created by Administrator on 2015/12/30.

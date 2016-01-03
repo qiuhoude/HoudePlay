@@ -20,6 +20,10 @@ android {
 }
 
 dependencies {
+
+    final SUPPORT_LIBRARY_VERSION = '22.2.1'
+
+
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:support-v4:22.2.1+'
@@ -27,8 +31,11 @@ dependencies {
     compile 'com.android.support:design:22.2.1+'
     compile 'com.android.support:cardview-v7:22.2.0+'
     compile 'com.android.support:recyclerview-v7:22.2.0+'
+
     compile 'com.jakewharton:butterknife:7.0.1'
     compile 'io.reactivex:rxandroid:1.1.0'
-    compile 'com.zhy:okhttputils:1.0.2'
+    compile 'io.reactivex:rxjava:1.1.0'
+    compile 'com.zhy:okhttputils:2.0.0'
 
+    compile project(':houdelib')
 }

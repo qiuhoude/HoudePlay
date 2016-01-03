@@ -3,7 +3,7 @@
     android:id="@+id/dl"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".ui.activity.MainActivity">
 
     <android.support.v4.view.ViewPager
         android:id="@+id/vp"
@@ -29,6 +29,5 @@
         android:layout_height="match_parent"
         android:layout_gravity="left"
         android:background="@drawable/bg_tab">
-
     </FrameLayout>
 </android.support.v4.widget.DrawerLayout>

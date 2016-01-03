@@ -1,7 +1,7 @@
 package com.qiu.houdeplay.cache;
 
 import com.google.gson.Gson;
-import com.qiu.houdeplay.tools.UiUtils;
+import com.qiu.houdeplay.utils.UiUtils;
 
 import rx.Observable;
 import rx.Subscriber;

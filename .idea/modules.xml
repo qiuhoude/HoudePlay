@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/HoudePlay.iml" filepath="$PROJECT_DIR$/HoudePlay.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/houdelib/houdelib.iml" filepath="$PROJECT_DIR$/houdelib/houdelib.iml" />
     </modules>
   </component>
 </project>
