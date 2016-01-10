@@ -1,4 +1,6 @@
-package com.qiu.houdeplay.base;
+package com.qiu.houdeplay.base.view;
+
+import com.qiu.houdeplay.base.presenter.Presenter;
 
 import java.lang.ref.Reference;
 import java.lang.ref.WeakReference;

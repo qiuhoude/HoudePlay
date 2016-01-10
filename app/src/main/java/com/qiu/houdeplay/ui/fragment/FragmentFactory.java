@@ -1,7 +1,7 @@
 package com.qiu.houdeplay.ui.fragment;
 
 
-import com.qiu.houdeplay.base.BaseFragment;
+import com.qiu.houdeplay.base.view.BaseFragment;
 
 import java.util.HashMap;
 import java.util.Map;

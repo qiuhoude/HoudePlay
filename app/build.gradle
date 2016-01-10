@@ -1,13 +1,15 @@
 apply plugin: 'com.android.application'
+apply plugin: 'me.tatarka.retrolambda' //lambda
+apply plugin: 'com.neenbedankt.android-apt' // 注释处理
 
 android {
-    compileSdkVersion 22
-    buildToolsVersion "22.0.1"
+    compileSdkVersion 23
+    buildToolsVersion "23.0.1"
 
     defaultConfig {
         applicationId "com.qiu.houdeplay"
         minSdkVersion 15
-        targetSdkVersion 22
+        targetSdkVersion 23
         versionCode 2
         versionName "1.0"
     }
@@ -17,25 +19,77 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    // 注释冲突
+    packagingOptions {
+        exclude 'META-INF/services/javax.annotation.processing.Processor'
+    }
+
+    // 使用Java1.8
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
 }
 
 dependencies {
-
-    final SUPPORT_LIBRARY_VERSION = '22.2.1'
-
-
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    testCompile 'junit:junit:4.12'
-    compile 'com.android.support:support-v4:22.2.1+'
-    compile 'com.android.support:appcompat-v7:22.2.1+'
-    compile 'com.android.support:design:22.2.1+'
-    compile 'com.android.support:cardview-v7:22.2.0+'
-    compile 'com.android.support:recyclerview-v7:22.2.0+'
+    compile project(':houdelib')
 
+    compile 'com.android.support:appcompat-v7:23.0.1'
+    compile 'com.android.support:design:23.0.1'
+    compile 'com.android.support:recyclerview-v7:23.0.1'
+    compile 'com.android.support:cardview-v7:23.0.1'
+    compile 'com.android.support:support-annotations:23.0.1'
+
+    //Mosby MVP
+    compile 'com.hannesdorfmann.mosby:mvp:2.0.0'
+    //转屏处理
+    compile 'com.hannesdorfmann.mosby:viewstate:2.0.0'
+
+    //保存状态库
+    compile 'frankiesardo:icepick:3.1.0'
+    provided 'frankiesardo:icepick-processor:3.1.0'
+
+
+    //eventbus
+    compile 'de.greenrobot:eventbus:2.4.0'
+
+    //大牛的库
     compile 'com.jakewharton:butterknife:7.0.1'
+    compile 'com.jakewharton.timber:timber:4.1.0'
+
     compile 'io.reactivex:rxandroid:1.1.0'
     compile 'io.reactivex:rxjava:1.1.0'
-    compile 'com.zhy:okhttputils:2.0.0'
+//    compile 'com.zhy:okhttputils:2.0.3'
+    compile 'com.google.code.gson:gson:2.5'
 
-    compile project(':houdelib')
+    //retrofit网络请求
+    compile 'com.squareup.retrofit:retrofit:2.0.0-beta2'
+    // Retrofit网络处理
+    compile 'com.squareup.retrofit:adapter-rxjava:2.0.0-beta2'
+    // Retrofit的rx解析库
+    compile 'com.squareup.retrofit:converter-gson:2.0.0-beta2'
+    // Retrofit的gson库
+
+    //rx
+    compile 'io.reactivex:rxandroid:1.1.0'
+    // RxAndroid
+    compile 'io.reactivex:rxjava:1.1.0'
+
+    // dagger2
+    compile 'com.google.dagger:dagger:2.0.2'
+    compile 'com.google.dagger:dagger-compiler:2.0.2'
+    //APT dependencies
+    apt 'com.google.dagger:dagger-compiler:2.0.2'
+    //Java标注 Required by Dagger2
+    provided 'javax.annotation:jsr250-api:1.0'
+
+    testCompile 'junit:junit:4.12'
+}
+//provided，是提供给那些只编译不打包场景的命令。就是，我在编译的时候对某一个jar文件有依赖，
+// 但是最终打包apk文件时，我不想把这个jar文件放进去，可以用这个命令
+repositories {
+    maven {url "https://clojars.org/repo/"}
 }

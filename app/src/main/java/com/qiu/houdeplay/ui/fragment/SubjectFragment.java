@@ -3,7 +3,8 @@ package com.qiu.houdeplay.ui.fragment;
 import android.view.View;
 import android.widget.TextView;
 
-import com.qiu.houdeplay.base.BaseFragment;
+import com.qiu.houdeplay.base.view.BaseFragment;
+import com.qiu.houdeplay.base.presenter.Presenter;
 
 public class SubjectFragment extends BaseFragment {
 
@@ -14,4 +15,8 @@ public class SubjectFragment extends BaseFragment {
 		return view;}
 
 
+	@Override
+	protected Presenter creatPresenter() {
+		return null;
+	}
 }

@@ -1,13 +1,14 @@
-package com.qiu.houdeplay.base;
+package com.qiu.houdeplay.base.view;
 
 import android.os.Bundle;
 
+import com.qiu.houdeplay.base.presenter.Presenter;
 import com.qiu.houdeplay.utils.AppManager;
 
 /**
  * Created by Administrator on 2015/12/22.
  */
-public abstract class BaseActivity<T extends BasePresenter<MvpView>> extends MvpBaseActivity<MvpView, T> {
+public abstract class BaseActivity<T extends Presenter> extends MvpBaseActivity<T> {
 
     public final String TAG = this.getClass().getName();
 

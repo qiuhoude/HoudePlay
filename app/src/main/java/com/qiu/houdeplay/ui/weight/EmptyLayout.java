@@ -128,7 +128,7 @@ public class EmptyLayout extends FrameLayout implements View.OnClickListener {
         switch (i) {
             case NETWORK_ERROR:
                 mErrorState = NETWORK_ERROR;
-                if (NetUtils.hasInternet(context)) {
+                if (NetUtils.isNetworkAvailable(context)) {
                     btn.setText(R.string.error_view_load_error_click_to_refresh);
                     img.setBackgroundResource(R.mipmap.ic_error_page);
                 } else {

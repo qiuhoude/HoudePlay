@@ -8,7 +8,7 @@ import android.net.ConnectivityManager;
  */
 public class NetUtils {
 
-    public static boolean hasInternet(Context context) {
+    public static boolean isNetworkAvailable(Context context) {
         boolean flag;
         ConnectivityManager connectivity = (ConnectivityManager)
                 context.getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -17,7 +17,6 @@ public class NetUtils {
         } else {
             flag = false;
         }
-
         return flag;
     }
 }

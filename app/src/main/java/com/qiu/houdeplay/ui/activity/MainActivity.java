@@ -17,8 +17,8 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.qiu.houdeplay.R;
-import com.qiu.houdeplay.base.BaseActivity;
-import com.qiu.houdeplay.base.BasePresenter;
+import com.qiu.houdeplay.base.view.BaseActivity;
+import com.qiu.houdeplay.base.view.BasePresenter;
 import com.qiu.houdeplay.ui.fragment.FragmentFactory;
 import com.qiu.houdeplay.presenter.MainPresenter;
 import com.qiu.houdeplay.ui.activity.interf.MainMvpView;

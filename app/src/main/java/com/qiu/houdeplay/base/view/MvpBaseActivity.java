@@ -1,13 +1,15 @@
-package com.qiu.houdeplay.base;
+package com.qiu.houdeplay.base.view;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 
+import com.qiu.houdeplay.base.presenter.Presenter;
+
 /**
  *
  */
-public abstract class MvpBaseActivity<V extends MvpView, T extends BasePresenter<V>>
-        extends ActionBarActivity {
+public abstract class MvpBaseActivity<T extends Presenter>
+        extends ActionBarActivity implements MvpView {
     protected T mPresenter;
 
     @Override
@@ -15,7 +17,7 @@ public abstract class MvpBaseActivity<V extends MvpView, T extends BasePresenter
         super.onCreate(savedInstanceState);
         mPresenter = creatPresenter();
         //绑定presenter
-        mPresenter.attachView((V) this);
+        mPresenter.attachView(this);
     }
 
     protected abstract T creatPresenter();

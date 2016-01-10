@@ -5,8 +5,8 @@ import android.view.View;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 
-import com.qiu.houdeplay.base.BaseFragmentList;
-import com.qiu.houdeplay.base.BasePresenter;
+import com.qiu.houdeplay.base.view.BaseFragmentList;
+import com.qiu.houdeplay.base.view.BasePresenter;
 import com.qiu.houdeplay.presenter.HomePresenter;
 
 public class HomeFragment extends BaseFragmentList {

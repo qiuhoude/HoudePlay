@@ -1,6 +1,6 @@
 package com.qiu.houdeplay.presenter;
 
-import com.qiu.houdeplay.base.BasePresenter;
+import com.qiu.houdeplay.base.view.BasePresenter;
 import com.qiu.houdeplay.ui.fragment.interf.HomeMvpView;
 
 /**

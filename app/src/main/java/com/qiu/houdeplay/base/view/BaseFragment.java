@@ -1,4 +1,4 @@
-package com.qiu.houdeplay.base;
+package com.qiu.houdeplay.base.view;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -7,12 +7,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.qiu.houdeplay.base.presenter.Presenter;
 import com.qiu.houdeplay.ui.weight.EmptyLayout;
 
 /**
  * Created by Administrator on 2015/12/29.
  */
-public abstract class BaseFragment<V extends MvpView, T extends BasePresenter<V>> extends MvpBaseFragment<V, T> {
+public abstract class BaseFragment<T extends Presenter> extends MvpBaseFragment<T> {
 
     protected EmptyLayout emptyLayout;
     protected Context mContext;

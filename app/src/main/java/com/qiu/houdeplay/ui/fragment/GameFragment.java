@@ -3,8 +3,8 @@ package com.qiu.houdeplay.ui.fragment;
 import android.view.View;
 import android.widget.TextView;
 
-import com.qiu.houdeplay.base.BaseFragment;
-import com.qiu.houdeplay.base.BasePresenter;
+import com.qiu.houdeplay.base.view.BaseFragment;
+import com.qiu.houdeplay.base.view.BasePresenter;
 
 public class GameFragment extends BaseFragment {
 

@@ -1,4 +1,6 @@
-package com.qiu.houdeplay.base;
+package com.qiu.houdeplay.base.presenter;
+
+import com.qiu.houdeplay.base.view.MvpView;
 
 /**
  * Created by Administrator on 2016/1/2.

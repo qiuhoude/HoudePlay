@@ -1,6 +1,6 @@
 package com.qiu.houdeplay.presenter;
 
-import com.qiu.houdeplay.base.BasePresenter;
+import com.qiu.houdeplay.base.view.BasePresenter;
 
 /**
  * Created by Administrator on 2016/1/2.

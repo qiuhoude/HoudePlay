@@ -1,4 +1,4 @@
-package com.qiu.houdeplay.base;
+package com.qiu.houdeplay.base.view;
 
 import android.view.View;
 import android.widget.ListAdapter;
