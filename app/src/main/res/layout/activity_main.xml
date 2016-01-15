@@ -5,29 +5,53 @@
     android:layout_height="match_parent"
     tools:context=".ui.activity.MainActivity">
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/vp"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true">
+        android:orientation="vertical">
 
-        <android.support.v4.view.PagerTabStrip
-            android:id="@+id/pager_tab_strip"
 
+
+        <FrameLayout
+            android:id="@+id/contentView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="top"
-            android:background="#ffffff"
-            android:paddingBottom="4dp"
-            android:paddingTop="4dp"
-            android:textColor="#000" />
-    </android.support.v4.view.ViewPager>
+            android:layout_height="match_parent">
+
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/vp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true">
+
+                <android.support.v4.view.PagerTabStrip
+                    android:id="@+id/pager_tab_strip"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:background="#ffffff"
+                    android:paddingBottom="4dp"
+                    android:paddingTop="4dp"
+                    android:textColor="#000" />
+            </android.support.v4.view.ViewPager>
+
+            <include layout="@layout/view_error" />
+
+            <include layout="@layout/view_loading" />
+
+        </FrameLayout>
+    </LinearLayout>
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="left"
+        android:layout_gravity="start"
         android:background="@drawable/bg_tab">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="ssss" />
     </FrameLayout>
 </android.support.v4.widget.DrawerLayout>

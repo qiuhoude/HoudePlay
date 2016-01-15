@@ -1,37 +1,23 @@
 package com.qiu.houdeplay.ui.fragment;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.ListAdapter;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.qiu.houdeplay.base.view.BaseFragmentList;
-import com.qiu.houdeplay.base.view.BasePresenter;
-import com.qiu.houdeplay.presenter.HomePresenter;
-
-public class HomeFragment extends BaseFragmentList {
-
+/**
+ * Created by Administrator on 2016/1/15.
+ */
+public class HomeFragment extends Fragment{
+    @Nullable
     @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-    }
-
-    protected View createSuccessView() {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         TextView tv = new TextView(getActivity());
-        tv.setText("加载成功了....");
-        tv.setTextSize(30);
+        tv.setText("AppFragment");
         return tv;
     }
 
-
-    @Override
-    protected ListAdapter getAdapter() {
-        return null;
-    }
-
-
-    @Override
-    protected BasePresenter creatPresenter() {
-        return new HomePresenter();
-    }
 }

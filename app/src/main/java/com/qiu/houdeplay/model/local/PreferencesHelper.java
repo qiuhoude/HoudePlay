@@ -4,7 +4,6 @@ package com.qiu.houdeplay.model.local;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.qiu.houdeplay.injection.ApplicationContext;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -21,7 +20,7 @@ public class PreferencesHelper {
     private final SharedPreferences mPref;
 
     @Inject
-    public PreferencesHelper(@ApplicationContext Context context) {
+    public PreferencesHelper(Context context) {
         mPref = context.getSharedPreferences(PREF_FILE_NAME, Context.MODE_PRIVATE);
     }
 

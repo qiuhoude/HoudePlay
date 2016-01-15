@@ -11,6 +11,7 @@ import retrofit.GsonConverterFactory;
 import retrofit.Retrofit;
 import retrofit.RxJavaCallAdapterFactory;
 import retrofit.http.GET;
+import retrofit.http.Headers;
 import retrofit.http.Query;
 
 /**
@@ -18,9 +19,10 @@ import retrofit.http.Query;
  */
 public interface HoudePlayApi {
 
-//    @Headers("Cache-Control: max-stale=60")
+    @Headers("Cache-Control: max-stale=60")
     @GET("home")
     Call<HomeInfo> getHomeData(@Query("index") int index);
+
 
     class Creator {
         public static HoudePlayApi newRibotsService() {
@@ -38,5 +40,4 @@ public interface HoudePlayApi {
             return retrofit.create(HoudePlayApi.class);
         }
     }
-
 }

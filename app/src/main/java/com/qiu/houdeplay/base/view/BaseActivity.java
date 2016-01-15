@@ -1,39 +1,79 @@
+/*
+ *  Copyright 2015 Hannes Dorfmann.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
+
 package com.qiu.houdeplay.base.view;
 
 import android.os.Bundle;
+import android.support.annotation.LayoutRes;
+import android.support.v7.app.AppCompatActivity;
 
-import com.qiu.houdeplay.base.presenter.Presenter;
-import com.qiu.houdeplay.utils.AppManager;
+import butterknife.ButterKnife;
+import icepick.Icepick;
 
 /**
- * Created by Administrator on 2015/12/22.
+ * Base class for Activities which already setup butterknife and icepick
+ *
+ * @author Hannes Dorfmann
  */
-public abstract class BaseActivity<T extends Presenter> extends MvpBaseActivity<T> {
-
-    public final String TAG = this.getClass().getName();
+public abstract class BaseActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        injectDependencies();
         super.onCreate(savedInstanceState);
-        //添加到栈
-        AppManager.getAppManager().addActivity(this);
+        Icepick.restoreInstanceState(this, savedInstanceState);
+        setContentView(getLayoutRes());
         init();
-        initActionBar();
         initView();
+        initToolBar();
+
     }
 
-    protected void initActionBar() {
-    }
-
-    protected void initView() {
-    }
-
-    protected void init() {
-    }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        AppManager.getAppManager().removeActivity(this);
+        ButterKnife.unbind(this);
     }
+
+    @Override
+    public void onContentChanged() {
+        super.onContentChanged();
+        ButterKnife.bind(this);
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        Icepick.saveInstanceState(this, outState);
+    }
+
+    protected void injectDependencies() {
+
+    }
+    @LayoutRes
+    protected abstract int getLayoutRes();
+
+    protected abstract void initToolBar();
+
+    protected abstract void init();
+
+    protected abstract void initView();
+
+
+
 }

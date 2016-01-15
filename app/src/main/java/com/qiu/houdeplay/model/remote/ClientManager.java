@@ -26,7 +26,7 @@ public class ClientManager {
     private static ClientManager mInstance;
 
     private ClientManager() {
-        context = ((BaseApplication) BaseApplication.getApplication()).getComponent().context();
+        context = BaseApplication.getApplication();
     }
 
     public static ClientManager getInstance() {
